@@ -1,0 +1,24 @@
+
+
+  @use "../abstracts/_variable.sass" as var
+//création de variable pour stocker le diamètre de la terre
+
+.planet
+  background-color: green
+  border-radius: 100%
+  width: 150px
+  height: 150px  
+  &--mercury
+    width: var.$mercury-size
+    height: var.$mercury-size
+    background-color: yellow
+
+
+  &--venus
+    width: var.$venus-size
+    height: var.$venus-size
+    background-color: purple
+
+  &--earth
+    width: var.$earth-size
+    height: var.$earth-size
