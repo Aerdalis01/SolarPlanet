@@ -1,5 +1,5 @@
+
+  @use "../abstracts/all.sass" as abstracts
 .sun  
-  background-color: orange  
-  width: 200px
-  height: 200px
-  border-radius: 100% 
+  @include abstracts.circle(abstracts.$sun-size , orange)
+  flex-shrink: 0

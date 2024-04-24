@@ -3,30 +3,79 @@
   padding: 0;
 }
 
+.galaxy {
+  height: 100vh;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  align-items-text-align: center;
+  margin-left: calc(50vw - 200px);
+  gap: 20px;
+  color: white;
+  background-color: #010057;
+}
+
 .planet {
   background-color: green;
-  border-radius: 100%;
   width: 150px;
   height: 150px;
+  border-radius: 100%;
+  background-color: green;
+  flex-shrink: 0;
 }
 .planet--mercury {
-  width: 38.4615384615px;
-  height: 38.4615384615px;
+  width: 7.6px;
+  height: 7.6px;
+  border-radius: 100%;
   background-color: yellow;
 }
 .planet--venus {
-  width: 90.9090909091px;
-  height: 90.9090909091px;
+  width: 19px;
+  height: 19px;
+  border-radius: 100%;
   background-color: purple;
 }
 .planet--earth {
-  width: 100px;
-  height: 100px;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: blue;
+}
+.planet--mars {
+  width: 10.6px;
+  height: 10.6px;
+  border-radius: 100%;
+  background-color: red;
+}
+.planet--jupiter {
+  width: 220px;
+  height: 220px;
+  border-radius: 100%;
+  background-color: grey;
+}
+.planet--saturne {
+  width: 183px;
+  height: 183px;
+  border-radius: 100%;
+  background-color: #80ff8c;
+}
+.planet--uranus {
+  width: 79.6px;
+  height: 79.6px;
+  border-radius: 100%;
+  background-color: #f870f6;
+}
+.planet--neptune {
+  width: 77.4px;
+  height: 77.4px;
+  border-radius: 100%;
+  background-color: #e99d4c;
 }
 
 .sun {
-  background-color: orange;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
   border-radius: 100%;
+  background-color: orange;
+  flex-shrink: 0;
 }/*# sourceMappingURL=main.css.map */

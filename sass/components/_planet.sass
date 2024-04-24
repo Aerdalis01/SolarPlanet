@@ -1,24 +1,35 @@
 
 
-  @use "../abstracts/_variable.sass" as var
+  @use "../abstracts/_all.sass" as abstracts
 //création de variable pour stocker le diamètre de la terre
 
 .planet
   background-color: green
-  border-radius: 100%
-  width: 150px
-  height: 150px  
+  @include abstracts.circle(150px)
+  flex-shrink: 0
+
   &--mercury
-    width: var.$mercury-size
-    height: var.$mercury-size
-    background-color: yellow
+    @include abstracts.circle(abstracts.$mercury-size, yellow)
+    
 
 
   &--venus
-    width: var.$venus-size
-    height: var.$venus-size
-    background-color: purple
+    @include abstracts.circle(abstracts.$venus-size, purple)
 
   &--earth
-    width: var.$earth-size
-    height: var.$earth-size
+    @include abstracts.circle(abstracts.$earth-size, blue)
+
+  &--mars
+    @include abstracts.circle(abstracts.$mars-size, red)
+
+  &--jupiter
+    @include abstracts.circle(abstracts.$jupiter-size, grey)
+
+  &--saturne
+    @include abstracts.circle(abstracts.$saturne-size, #80ff8c)
+
+  &--uranus
+    @include abstracts.circle(abstracts.$uranus-size, #f870f6)
+
+  &--neptune
+    @include abstracts.circle(abstracts.$neptune-size, #e99d4c)
