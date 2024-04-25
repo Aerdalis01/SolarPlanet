@@ -3,4 +3,10 @@
 .sun  
   $background: "../img/sun.svg"
   @include abstracts.circle(abstracts.$sun-size , $background)
-  
+  animation: rotation-sun 30s linear infinite
+
+@keyframes rotation-sun
+  0%  //etat de départ
+    transform: rotate(0)
+  100%//état d'arrivé
+    transform: rotate(360deg)

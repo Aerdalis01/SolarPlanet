@@ -1,16 +1,31 @@
 
 
-  @use "../abstracts/_all" as abstracts
-  @use "sass:math"
-  @use "sass:map"
-//création de variable pour stocker le diamètre de la terre
+@use "../abstracts/_all" as abstracts
+@use "sass:math"
+@use "sass:map"
 
+//Définition des variable de distances entre le soleil et chaque planète
 $distance-between-mercury-and-sun: abstracts.$gap-between-planets
-$distance-between-venus-and-sun: 2 * abstracts.$gap-between-planets + abstracts.$mercury-size
+$distance-between-venus-and-sun: calc( 2 * abstracts.$gap-between-planets + abstracts.$mercury-size)
+$distance-between-earth-and-sun: calc( 3 * abstracts.$gap-between-planets + abstracts.$mercury-size + abstracts.$venus-size)
+$distance-between-mars-and-sun: calc( 4 * abstracts.$gap-between-planets + abstracts.$mercury-size + abstracts.$venus-size + abstracts.$earth-size)
+$distance-between-jupiter-and-sun: calc( 5 * abstracts.$gap-between-planets + abstracts.$mercury-size + abstracts.$venus-size + abstracts.$earth-size + abstracts.$mars-size)
+$distance-between-saturne-and-sun: calc( 6 * abstracts.$gap-between-planets + abstracts.$mercury-size + abstracts.$venus-size + abstracts.$earth-size + abstracts.$mars-size + abstracts.$jupiter-size)
+$distance-between-uranus-and-sun: calc( 7 * abstracts.$gap-between-planets + abstracts.$mercury-size + abstracts.$venus-size + abstracts.$earth-size + abstracts.$mars-size + abstracts.$jupiter-size + abstracts.$saturne-size)
+$distance-between-neptune-and-sun: calc( 8 * abstracts.$gap-between-planets + abstracts.$mercury-size + abstracts.$venus-size + abstracts.$earth-size + abstracts.$mars-size + abstracts.$jupiter-size + abstracts.$saturne-size + abstracts.$uranus-size)
 
-$list-planets: 'mercury', 'venus', 'earth', 'mars'
-$planets-size: ('mercury': #{abstracts.$mercury-size}, 'venus': #{abstracts.$venus-size}, 'earth': #{abstracts.$earth-size}, 'mars': #{abstracts.$mars-size})
+//Création de la liste des planètes
+$list-planets: 'mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturne', 'uranus', 'neptune'
 
+//Définition de la taille des planète à partir de la liste précédente et des variables $planet-size
+$planets-size: ('mercury': #{abstracts.$mercury-size}, 'venus': #{abstracts.$venus-size}, 'earth': #{abstracts.$earth-size}, 'mars': #{abstracts.$mars-size}, 'jupiter': #{abstracts.$jupiter-size}, "saturne": #{abstracts.$saturne-size}, "uranus": #{abstracts.$uranus-size}, "neptune": #{abstracts.$neptune-size})
+
+//Définition de la variable définissant la distance entre une planète et le soleil
+$planets-sun-distance: ('mercury': $distance-between-mercury-and-sun, 'venus': $distance-between-venus-and-sun, 'earth': $distance-between-earth-and-sun, 'mars': $distance-between-mars-and-sun, 'jupiter': $distance-between-jupiter-and-sun, 'saturne': $distance-between-saturne-and-sun, 'uranus': $distance-between-uranus-and-sun, 'neptune': $distance-between-neptune-and-sun) 
+
+//Définition du temps nécessaire à chaque planète pour faire le tour du soleil
+
+$planet-time: ('mercury': #{abstracts.$mercury-time}, 'venus': #{abstracts.$venus-time}, 'earth': #{abstracts.$earth-time}, 'mars': #{abstracts.$mars-time}, 'jupiter': #{abstracts.$jupiter-time}, "saturne": #{abstracts.$saturne-time}, "uranus": #{abstracts.$uranus-time}, "neptune": #{abstracts.$neptune-time})
 
 .planet
   
@@ -19,52 +34,13 @@ $planets-size: ('mercury': #{abstracts.$mercury-size}, 'venus': #{abstracts.$ven
     &--#{$planet}
       $background-planet: "../img/#{$planet}.svg"
       $size-planet: map.get($planets-size, $planet)
+      $distance-between-planet-and-sun: map.get($planets-sun-distance, $planet)
+      $time-planet: map.get($planet-time, $planet)
       @include abstracts.circle($size-planet, $background-planet)
+      @include abstracts.rotate-around-sun($distance-between-planet-and-sun, $size-planet, $time-planet)
+      @if $planet == 'uranus' or $planet == 'saturne'
+        border-radius: 0
 
-  &--mercury
-    // $mercury-background: "../img/mercury.svg"    
-    // @include abstracts.circle(abstracts.$mercury-size, $mercury-background)
-    @include abstracts.rotate-around-sun($distance-between-mercury-and-sun, abstracts.$mercury-size, 10s )
-    
-
-  &--venus
-    //$venus-background: "../img/venus.svg" 
-    //@include abstracts.circle(abstracts.$venus-size, $venus-background)
-    @include abstracts.rotate-around-sun($distance-between-venus-and-sun, abstracts.$venus-size, 15s )
-    
-
-  &--earth
-    //$earth-background: "../img/earth.svg"
-    //@include abstracts.circle(abstracts.$earth-size, $earth-background)
-    
-    
-    
-
-  &--mars
-    //$mars-background: "../img/mars.svg"
-    //@include abstracts.circle(abstracts.$mars-size, $mars-background)
-    @extend .planet
-
-    
-
-  &--jupiter
-    $jupiter-background: "../img/jupiter.svg"
-    @include abstracts.circle(abstracts.$jupiter-size, $jupiter-background)
-
-  &--saturne
-    $saturne-background: "../img/saturn.svg"
-    @include abstracts.circle(abstracts.$saturne-size, $saturne-background)
-    
-
-  &--uranus
-    $uranus-background: "../img/uranus.svg"
-    @include abstracts.circle(abstracts.$uranus-size, $uranus-background)
-    
-
-  &--neptune
-    $neptune-background: "../img/neptune.svg"
-    @include abstracts.circle(abstracts.$neptune-size, $neptune-background)
-    
 
 
 @keyframes rotation-planet

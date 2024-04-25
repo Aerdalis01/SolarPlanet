@@ -10,14 +10,20 @@
   background-image: url($url)
   flex-shrink: 0
   position: relative
+
+
+
+  
+
+
 @mixin rotate-around-planet($duration: 5s, $planet-size)
   $center-x: calc( math.div($planet-size, 2))
-  $center-y: calc( math.div($planet-size, 2))
+  $center-y: calc($planet-size / 2)
   transform-origin: $center-x $center-y
   animation: animation-rotate $duration linear infinite
 
-@mixin rotate-around-sun($distance-to-sun, $planet-size, $duration: 10s)
+@mixin rotate-around-sun($distance-to-sun, $planet-size, $duration: $duration)
   $center-x: -1 * ($distance-to-sun + math.div(var.$sun-size, 2))
-  $center-y: calc(math.div($planet-size, 2))
+  $center-y: calc($planet-size / 2)
   transform-origin: $center-x $center-y
   animation: animation-rotate $duration linear infinite
