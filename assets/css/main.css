@@ -14,13 +14,11 @@
   background-color: #010057;
 }
 
-.planet, .planet--neptune, .planet--uranus, .planet--saturne, .planet--jupiter, .planet--mars, .planet--earth, .planet--venus, .planet--mercury {
-  background-color: green;
+.planet, .planet--mars {
   width: 150px;
   height: 150px;
   border-radius: 100%;
   background-image: url("");
-  flex-shrink: 0;
   flex-shrink: 0;
   position: relative;
 }
@@ -30,8 +28,7 @@
   border-radius: 100%;
   background-image: url("../img/mercury.svg");
   flex-shrink: 0;
-  transform-origin: -110px 3.8px;
-  animation: animation-rotate 10s linear infinite;
+  position: relative;
 }
 .planet--venus {
   width: 19px;
@@ -39,8 +36,7 @@
   border-radius: 100%;
   background-image: url("../img/venus.svg");
   flex-shrink: 0;
-  transform-origin: -127.6px 9.5px;
-  animation: animation-rotate 15s linear infinite;
+  position: relative;
 }
 .planet--earth {
   width: 20px;
@@ -48,6 +44,7 @@
   border-radius: 100%;
   background-image: url("../img/earth.svg");
   flex-shrink: 0;
+  position: relative;
 }
 .planet--mars {
   width: 10.6px;
@@ -55,6 +52,15 @@
   border-radius: 100%;
   background-image: url("../img/mars.svg");
   flex-shrink: 0;
+  position: relative;
+}
+.planet--mercury {
+  transform-origin: -110px 3.8px;
+  animation: animation-rotate 10s linear infinite;
+}
+.planet--venus {
+  transform-origin: -127.6px 9.5px;
+  animation: animation-rotate 15s linear infinite;
 }
 .planet--jupiter {
   width: 140px;
@@ -62,13 +68,15 @@
   border-radius: 100%;
   background-image: url("../img/jupiter.svg");
   flex-shrink: 0;
+  position: relative;
 }
 .planet--saturne {
   width: 100px;
   height: 100px;
   border-radius: 100%;
-  background-image: url("../img/saturne.svg");
+  background-image: url("../img/saturn.svg");
   flex-shrink: 0;
+  position: relative;
 }
 .planet--uranus {
   width: 79.6px;
@@ -76,6 +84,7 @@
   border-radius: 100%;
   background-image: url("../img/uranus.svg");
   flex-shrink: 0;
+  position: relative;
 }
 .planet--neptune {
   width: 77.4px;
@@ -83,6 +92,7 @@
   border-radius: 100%;
   background-image: url("../img/neptune.svg");
   flex-shrink: 0;
+  position: relative;
 }
 
 @keyframes rotation-planet {
@@ -99,17 +109,20 @@
   border-radius: 100%;
   background-image: url("../img/sun.svg");
   flex-shrink: 0;
+  position: relative;
 }
 
 .satellite, .satellite--deimos, .satellite--phobos, .satellite--moon {
   position: absolute;
+  background-color: grey;
 }
 .satellite--moon {
   width: 5.4px;
   height: 5.4px;
   border-radius: 100%;
-  background-image: url(white);
+  background-image: url("");
   flex-shrink: 0;
+  position: relative;
   transform-origin: 10px 10px;
   animation: animation-rotate 5s linear infinite;
 }
@@ -117,8 +130,9 @@
   width: 3px;
   height: 3px;
   border-radius: 100%;
-  background-image: url(grey);
+  background-image: url("");
   flex-shrink: 0;
+  position: relative;
   transform-origin: 5.3px 5.3px;
   animation: animation-rotate 2s linear infinite;
 }
@@ -126,8 +140,9 @@
   width: 2.4px;
   height: 2.4px;
   border-radius: 100%;
-  background-image: url(orange);
+  background-image: url("");
   flex-shrink: 0;
+  position: relative;
   left: 10px;
   top: 10px;
   transform-origin: -4.7px -4.7px;

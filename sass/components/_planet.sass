@@ -1,64 +1,70 @@
 
 
-  @use "../abstracts/_all.sass" as abstracts
+  @use "../abstracts/_all" as abstracts
+  @use "sass:math"
+  @use "sass:map"
 //création de variable pour stocker le diamètre de la terre
 
 $distance-between-mercury-and-sun: abstracts.$gap-between-planets
 $distance-between-venus-and-sun: 2 * abstracts.$gap-between-planets + abstracts.$mercury-size
 
+$list-planets: 'mercury', 'venus', 'earth', 'mars'
+$planets-size: ('mercury': #{abstracts.$mercury-size}, 'venus': #{abstracts.$venus-size}, 'earth': #{abstracts.$earth-size}, 'mars': #{abstracts.$mars-size})
 
 
 .planet
-  background-color: green
+  
   @include abstracts.circle(150px)
-  flex-shrink: 0
-  position: relative
+  @each $planet in $list-planets
+    &--#{$planet}
+      $background-planet: "../img/#{$planet}.svg"
+      $size-planet: map.get($planets-size, $planet)
+      @include abstracts.circle($size-planet, $background-planet)
 
   &--mercury
-    $mercury-background: "../img/mercury.svg"    
-    @extend .planet
-    @include abstracts.circle(abstracts.$mercury-size, $mercury-background)
+    // $mercury-background: "../img/mercury.svg"    
+    // @include abstracts.circle(abstracts.$mercury-size, $mercury-background)
     @include abstracts.rotate-around-sun($distance-between-mercury-and-sun, abstracts.$mercury-size, 10s )
+    
 
   &--venus
-    $venus-background: "../img/venus.svg" 
-    @extend .planet
-    @include abstracts.circle(abstracts.$venus-size, $venus-background)
+    //$venus-background: "../img/venus.svg" 
+    //@include abstracts.circle(abstracts.$venus-size, $venus-background)
     @include abstracts.rotate-around-sun($distance-between-venus-and-sun, abstracts.$venus-size, 15s )
+    
 
   &--earth
-    $earth-background: "../img/earth.svg"
-    @extend .planet
-    @include abstracts.circle(abstracts.$earth-size, $earth-background)
+    //$earth-background: "../img/earth.svg"
+    //@include abstracts.circle(abstracts.$earth-size, $earth-background)
+    
     
     
 
   &--mars
-    $mars-background: "../img/mars.svg"
+    //$mars-background: "../img/mars.svg"
+    //@include abstracts.circle(abstracts.$mars-size, $mars-background)
     @extend .planet
-    @include abstracts.circle(abstracts.$mars-size, $mars-background)
 
     
 
   &--jupiter
     $jupiter-background: "../img/jupiter.svg"
     @include abstracts.circle(abstracts.$jupiter-size, $jupiter-background)
-    @extend .planet
 
   &--saturne
-    $saturne-background: "../img/saturne.svg"
+    $saturne-background: "../img/saturn.svg"
     @include abstracts.circle(abstracts.$saturne-size, $saturne-background)
-    @extend .planet
+    
 
   &--uranus
     $uranus-background: "../img/uranus.svg"
     @include abstracts.circle(abstracts.$uranus-size, $uranus-background)
-    @extend .planet
+    
 
   &--neptune
     $neptune-background: "../img/neptune.svg"
     @include abstracts.circle(abstracts.$neptune-size, $neptune-background)
-    @extend .planet
+    
 
 
 @keyframes rotation-planet

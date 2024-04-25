@@ -2,19 +2,25 @@
 
   @use "../abstracts/_all.sass" as abstracts
 
+
+$list-planets: 'mercury', 'venus', 'earth', 'mars'
+
+
 .satellite
   position: absolute
+  background-color: grey
   
+
 
   &--moon
     @extend .satellite
-    @include abstracts.circle(abstracts.$moon-size, white)
+    @include abstracts.circle(abstracts.$moon-size)
     @include abstracts.rotate-around-planet($duration: 5s, $planet-size: abstracts.$earth-size)
     
 
   &--phobos
     @extend .satellite
-    @include abstracts.circle(abstracts.$phobos-size, grey)
+    @include abstracts.circle(abstracts.$phobos-size)
     @include abstracts.rotate-around-planet($duration: 2s, $planet-size: abstracts.$mars-size)
 
 
@@ -22,7 +28,7 @@
 
   &--deimos
     @extend .satellite
-    @include abstracts.circle(abstracts.$deimos-size, orange)
+    @include abstracts.circle(abstracts.$deimos-size)
     left: 10px
     top: 10px
     $center-x: calc(abstracts.$mars-size / 2 - 10px)
