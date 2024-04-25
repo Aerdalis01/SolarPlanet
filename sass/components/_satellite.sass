@@ -9,20 +9,13 @@
   &--moon
     @extend .satellite
     @include abstracts.circle(abstracts.$moon-size, white)
-    $center-x: calc(abstracts.$earth-size / 2 )
-    $center-y: calc(abstracts.$earth-size / 2 )
-    transform-origin: $center-x $center-y
-    animation: animation-rotation 5s linear infinite
+    @include abstracts.rotate-around-planet($duration: 5s, $planet-size: abstracts.$earth-size)
     
 
   &--phobos
     @extend .satellite
     @include abstracts.circle(abstracts.$phobos-size, grey)
-    $center-x: calc(abstracts.$mars-size / 2 )
-    $center-y: calc(abstracts.$mars-size / 2 )
-    transform-origin: $center-x $center-y
-    animation: animation-rotation 2s linear infinite
-    
+    @include abstracts.rotate-around-planet($duration: 2s, $planet-size: abstracts.$mars-size)
 
 
 
@@ -35,11 +28,11 @@
     $center-x: calc(abstracts.$mars-size / 2 - 10px)
     $center-y: calc(abstracts.$mars-size / 2 - 10px)
     transform-origin: $center-x $center-y
-    animation: animation-rotation 3s linear infinite
+    animation: animation-rotate 3s linear infinite
 
 
 
-@keyframes animation-rotation
+@keyframes animation-rotate
   0%  //etat de départ
     transform: rotate(0)
   100%//état d'arrivé

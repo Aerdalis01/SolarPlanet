@@ -15,47 +15,49 @@ $distance-between-venus-and-sun: 2 * abstracts.$gap-between-planets + abstracts.
   position: relative
 
   &--mercury
+    $mercury-background: "../img/mercury.svg"    
     @extend .planet
-    @include abstracts.circle(abstracts.$mercury-size, yellow)
-    $center-x: calc( 1px - (abstracts.$mercury-size / 2) - $distance-between-mercury-and-sun - (abstracts.$sun-size / 2))
-    $center-y: 0
-    transform-origin: $center-x $center-y
-    animation: rotation-planet 5s linear
+    @include abstracts.circle(abstracts.$mercury-size, $mercury-background)
+    @include abstracts.rotate-around-sun($distance-between-mercury-and-sun, abstracts.$mercury-size, 10s )
 
   &--venus
+    $venus-background: "../img/venus.svg" 
     @extend .planet
-    @include abstracts.circle(abstracts.$venus-size, purple)
-    $center-x: calc( 1px - (abstracts.$venus-size / 2) - (2 * abstracts.$gap-between-planets + abstracts.$mercury-size) - (abstracts.$sun-size / 2))
-    $center-y: 0
-    transform-origin: $center-x $center-y
-    animation: rotation-planet 10s linear
+    @include abstracts.circle(abstracts.$venus-size, $venus-background)
+    @include abstracts.rotate-around-sun($distance-between-venus-and-sun, abstracts.$venus-size, 15s )
 
   &--earth
+    $earth-background: "../img/earth.svg"
     @extend .planet
-    @include abstracts.circle(abstracts.$earth-size, blue)
+    @include abstracts.circle(abstracts.$earth-size, $earth-background)
     
     
 
   &--mars
+    $mars-background: "../img/mars.svg"
     @extend .planet
-    @include abstracts.circle(abstracts.$mars-size, red)
+    @include abstracts.circle(abstracts.$mars-size, $mars-background)
 
     
 
   &--jupiter
-    @include abstracts.circle(abstracts.$jupiter-size, grey)
+    $jupiter-background: "../img/jupiter.svg"
+    @include abstracts.circle(abstracts.$jupiter-size, $jupiter-background)
     @extend .planet
 
   &--saturne
-    @include abstracts.circle(abstracts.$saturne-size, #80ff8c)
+    $saturne-background: "../img/saturne.svg"
+    @include abstracts.circle(abstracts.$saturne-size, $saturne-background)
     @extend .planet
 
   &--uranus
-    @include abstracts.circle(abstracts.$uranus-size, #f870f6)
+    $uranus-background: "../img/uranus.svg"
+    @include abstracts.circle(abstracts.$uranus-size, $uranus-background)
     @extend .planet
 
   &--neptune
-    @include abstracts.circle(abstracts.$neptune-size, #e99d4c)
+    $neptune-background: "../img/neptune.svg"
+    @include abstracts.circle(abstracts.$neptune-size, $neptune-background)
     @extend .planet
 
 

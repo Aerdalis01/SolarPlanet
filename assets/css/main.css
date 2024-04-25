@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: start;
-  margin-left: calc(50vw - 200px);
+  margin-left: calc(50vw - 100px);
   gap: 10px;
   color: white;
   background-color: #010057;
@@ -19,7 +19,8 @@
   width: 150px;
   height: 150px;
   border-radius: 100%;
-  background-color: green;
+  background-image: url("");
+  flex-shrink: 0;
   flex-shrink: 0;
   position: relative;
 }
@@ -27,53 +28,61 @@
   width: 7.6px;
   height: 7.6px;
   border-radius: 100%;
-  background-color: yellow;
-  transform-origin: -212.8px 0;
-  animation: rotation-planet 5s linear;
+  background-image: url("../img/mercury.svg");
+  flex-shrink: 0;
+  transform-origin: -110px 3.8px;
+  animation: animation-rotate 10s linear infinite;
 }
 .planet--venus {
   width: 19px;
   height: 19px;
   border-radius: 100%;
-  background-color: purple;
-  transform-origin: -228.5px 0;
-  animation: rotation-planet 10s linear;
+  background-image: url("../img/venus.svg");
+  flex-shrink: 0;
+  transform-origin: -127.6px 9.5px;
+  animation: animation-rotate 15s linear infinite;
 }
 .planet--earth {
   width: 20px;
   height: 20px;
   border-radius: 100%;
-  background-color: blue;
+  background-image: url("../img/earth.svg");
+  flex-shrink: 0;
 }
 .planet--mars {
   width: 10.6px;
   height: 10.6px;
   border-radius: 100%;
-  background-color: red;
+  background-image: url("../img/mars.svg");
+  flex-shrink: 0;
 }
 .planet--jupiter {
-  width: 220px;
-  height: 220px;
+  width: 140px;
+  height: 140px;
   border-radius: 100%;
-  background-color: grey;
+  background-image: url("../img/jupiter.svg");
+  flex-shrink: 0;
 }
 .planet--saturne {
-  width: 183px;
-  height: 183px;
+  width: 100px;
+  height: 100px;
   border-radius: 100%;
-  background-color: #80ff8c;
+  background-image: url("../img/saturne.svg");
+  flex-shrink: 0;
 }
 .planet--uranus {
   width: 79.6px;
   height: 79.6px;
   border-radius: 100%;
-  background-color: #f870f6;
+  background-image: url("../img/uranus.svg");
+  flex-shrink: 0;
 }
 .planet--neptune {
   width: 77.4px;
   height: 77.4px;
   border-radius: 100%;
-  background-color: #e99d4c;
+  background-image: url("../img/neptune.svg");
+  flex-shrink: 0;
 }
 
 @keyframes rotation-planet {
@@ -85,10 +94,10 @@
   }
 }
 .sun {
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
   border-radius: 100%;
-  background-color: orange;
+  background-image: url("../img/sun.svg");
   flex-shrink: 0;
 }
 
@@ -99,30 +108,33 @@
   width: 5.4px;
   height: 5.4px;
   border-radius: 100%;
-  background-color: white;
+  background-image: url(white);
+  flex-shrink: 0;
   transform-origin: 10px 10px;
-  animation: animation-rotation 5s linear infinite;
+  animation: animation-rotate 5s linear infinite;
 }
 .satellite--phobos {
   width: 3px;
   height: 3px;
   border-radius: 100%;
-  background-color: grey;
+  background-image: url(grey);
+  flex-shrink: 0;
   transform-origin: 5.3px 5.3px;
-  animation: animation-rotation 2s linear infinite;
+  animation: animation-rotate 2s linear infinite;
 }
 .satellite--deimos {
   width: 2.4px;
   height: 2.4px;
   border-radius: 100%;
-  background-color: orange;
+  background-image: url(orange);
+  flex-shrink: 0;
   left: 10px;
   top: 10px;
   transform-origin: -4.7px -4.7px;
-  animation: animation-rotation 3s linear infinite;
+  animation: animation-rotate 3s linear infinite;
 }
 
-@keyframes animation-rotation {
+@keyframes animation-rotate {
   0% {
     transform: rotate(0);
   }

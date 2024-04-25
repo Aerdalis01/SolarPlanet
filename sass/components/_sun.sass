@@ -1,5 +1,6 @@
 
   @use "../abstracts/all.sass" as abstracts
 .sun  
-  @include abstracts.circle(abstracts.$sun-size , orange)
-  flex-shrink: 0
+  $background: "../img/sun.svg"
+  @include abstracts.circle(abstracts.$sun-size , $background)
+  
