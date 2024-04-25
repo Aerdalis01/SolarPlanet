@@ -1,0 +1,46 @@
+
+
+  @use "../abstracts/_all.sass" as abstracts
+
+.satellite
+  position: absolute
+  
+
+  &--moon
+    @extend .satellite
+    @include abstracts.circle(abstracts.$moon-size, white)
+    $center-x: calc(abstracts.$earth-size / 2 )
+    $center-y: calc(abstracts.$earth-size / 2 )
+    transform-origin: $center-x $center-y
+    animation: animation-rotation 5s linear infinite
+    
+
+  &--phobos
+    @extend .satellite
+    @include abstracts.circle(abstracts.$phobos-size, grey)
+    $center-x: calc(abstracts.$mars-size / 2 )
+    $center-y: calc(abstracts.$mars-size / 2 )
+    transform-origin: $center-x $center-y
+    animation: animation-rotation 2s linear infinite
+    
+
+
+
+
+  &--deimos
+    @extend .satellite
+    @include abstracts.circle(abstracts.$deimos-size, orange)
+    left: 10px
+    top: 10px
+    $center-x: calc(abstracts.$mars-size / 2 - 10px)
+    $center-y: calc(abstracts.$mars-size / 2 - 10px)
+    transform-origin: $center-x $center-y
+    animation: animation-rotation 3s linear infinite
+
+
+
+@keyframes animation-rotation
+  0%  //etat de départ
+    transform: rotate(0)
+  100%//état d'arrivé
+    transform: rotate(360deg)

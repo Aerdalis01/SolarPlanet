@@ -6,34 +6,38 @@
 .galaxy {
   height: 100vh;
   display: flex;
-  justify-content: start;
   align-items: center;
-  align-items-text-align: center;
+  justify-content: start;
   margin-left: calc(50vw - 200px);
-  gap: 20px;
+  gap: 10px;
   color: white;
   background-color: #010057;
 }
 
-.planet {
+.planet, .planet--neptune, .planet--uranus, .planet--saturne, .planet--jupiter, .planet--mars, .planet--earth, .planet--venus, .planet--mercury {
   background-color: green;
   width: 150px;
   height: 150px;
   border-radius: 100%;
   background-color: green;
   flex-shrink: 0;
+  position: relative;
 }
 .planet--mercury {
   width: 7.6px;
   height: 7.6px;
   border-radius: 100%;
   background-color: yellow;
+  transform-origin: -212.8px 0;
+  animation: rotation-planet 5s linear;
 }
 .planet--venus {
   width: 19px;
   height: 19px;
   border-radius: 100%;
   background-color: purple;
+  transform-origin: -228.5px 0;
+  animation: rotation-planet 10s linear;
 }
 .planet--earth {
   width: 20px;
@@ -72,10 +76,57 @@
   background-color: #e99d4c;
 }
 
+@keyframes rotation-planet {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .sun {
   width: 400px;
   height: 400px;
   border-radius: 100%;
   background-color: orange;
   flex-shrink: 0;
+}
+
+.satellite, .satellite--deimos, .satellite--phobos, .satellite--moon {
+  position: absolute;
+}
+.satellite--moon {
+  width: 5.4px;
+  height: 5.4px;
+  border-radius: 100%;
+  background-color: white;
+  transform-origin: 10px 10px;
+  animation: animation-rotation 5s linear infinite;
+}
+.satellite--phobos {
+  width: 3px;
+  height: 3px;
+  border-radius: 100%;
+  background-color: grey;
+  transform-origin: 5.3px 5.3px;
+  animation: animation-rotation 2s linear infinite;
+}
+.satellite--deimos {
+  width: 2.4px;
+  height: 2.4px;
+  border-radius: 100%;
+  background-color: orange;
+  left: 10px;
+  top: 10px;
+  transform-origin: -4.7px -4.7px;
+  animation: animation-rotation 3s linear infinite;
+}
+
+@keyframes animation-rotation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=main.css.map */

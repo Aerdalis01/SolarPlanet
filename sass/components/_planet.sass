@@ -3,33 +3,64 @@
   @use "../abstracts/_all.sass" as abstracts
 //création de variable pour stocker le diamètre de la terre
 
+$distance-between-mercury-and-sun: abstracts.$gap-between-planets
+$distance-between-venus-and-sun: 2 * abstracts.$gap-between-planets + abstracts.$mercury-size
+
+
+
 .planet
   background-color: green
   @include abstracts.circle(150px)
   flex-shrink: 0
+  position: relative
 
   &--mercury
+    @extend .planet
     @include abstracts.circle(abstracts.$mercury-size, yellow)
-    
-
+    $center-x: calc( 1px - (abstracts.$mercury-size / 2) - $distance-between-mercury-and-sun - (abstracts.$sun-size / 2))
+    $center-y: 0
+    transform-origin: $center-x $center-y
+    animation: rotation-planet 5s linear
 
   &--venus
+    @extend .planet
     @include abstracts.circle(abstracts.$venus-size, purple)
+    $center-x: calc( 1px - (abstracts.$venus-size / 2) - (2 * abstracts.$gap-between-planets + abstracts.$mercury-size) - (abstracts.$sun-size / 2))
+    $center-y: 0
+    transform-origin: $center-x $center-y
+    animation: rotation-planet 10s linear
 
   &--earth
+    @extend .planet
     @include abstracts.circle(abstracts.$earth-size, blue)
+    
+    
 
   &--mars
+    @extend .planet
     @include abstracts.circle(abstracts.$mars-size, red)
+
+    
 
   &--jupiter
     @include abstracts.circle(abstracts.$jupiter-size, grey)
+    @extend .planet
 
   &--saturne
     @include abstracts.circle(abstracts.$saturne-size, #80ff8c)
+    @extend .planet
 
   &--uranus
     @include abstracts.circle(abstracts.$uranus-size, #f870f6)
+    @extend .planet
 
   &--neptune
     @include abstracts.circle(abstracts.$neptune-size, #e99d4c)
+    @extend .planet
+
+
+@keyframes rotation-planet
+  0%  //etat de départ
+    transform: rotate(0)
+  100%//état d'arrivé
+    transform: rotate(360deg)
