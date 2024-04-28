@@ -1,0 +1,6 @@
+@use 'sass:math'
+
+@funtion random-position()
+  $number: math.random(99)
+  $unit: '%'
+  @return #{$number} + #{$unit}

@@ -4,14 +4,29 @@
 }
 
 .galaxy {
+  background-color: #050433;
+  position: relative;
+  width: 100vw;
   height: 100vh;
+}
+.galaxy__planets--container {
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: start;
+  margin-top: calc(50vh - 100px);
   margin-left: calc(50vw - 100px);
   gap: 10px;
-  color: white;
-  background-color: #010057;
+  z-index: 1;
+  position: relative;
+}
+.galaxy__star--container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
 }
 
 .planet {
@@ -175,4 +190,133 @@
   100% {
     transform: rotate(360deg);
   }
+}
+.star {
+  width: 50px;
+  height: 50px;
+}
+.star:nth-child(1) {
+  position: absolute;
+  top: 77;
+  left: 25%;
+}
+.star:nth-child(2) {
+  position: absolute;
+  top: 78;
+  left: 25%;
+}
+.star:nth-child(3) {
+  position: absolute;
+  top: 81;
+  left: 25%;
+}
+.star:nth-child(4) {
+  position: absolute;
+  top: 59;
+  left: 25%;
+}
+.star:nth-child(5) {
+  position: absolute;
+  top: 78;
+  left: 25%;
+}
+.star:nth-child(6) {
+  position: absolute;
+  top: 29;
+  left: 25%;
+}
+.star:nth-child(7) {
+  position: absolute;
+  top: 91;
+  left: 25%;
+}
+.star:nth-child(8) {
+  position: absolute;
+  top: 94;
+  left: 25%;
+}
+.star:nth-child(9) {
+  position: absolute;
+  top: 51;
+  left: 25%;
+}
+.star:nth-child(10) {
+  position: absolute;
+  top: 39;
+  left: 25%;
+}
+.star:nth-child(11) {
+  position: absolute;
+  top: 75;
+  left: 25%;
+}
+.star:nth-child(12) {
+  position: absolute;
+  top: 25;
+  left: 25%;
+}
+.star:nth-child(13) {
+  position: absolute;
+  top: 96;
+  left: 25%;
+}
+.star:nth-child(14) {
+  position: absolute;
+  top: 15;
+  left: 25%;
+}
+.star:nth-child(15) {
+  position: absolute;
+  top: 19;
+  left: 25%;
+}
+.star:nth-child(16) {
+  position: absolute;
+  top: 39;
+  left: 25%;
+}
+.star:nth-child(17) {
+  position: absolute;
+  top: 56;
+  left: 25%;
+}
+.star:nth-child(18) {
+  position: absolute;
+  top: 87;
+  left: 25%;
+}
+.star:nth-child(19) {
+  position: absolute;
+  top: 86;
+  left: 25%;
+}
+.star:nth-child(20) {
+  position: absolute;
+  top: 40;
+  left: 25%;
+}
+.star:nth-child(21) {
+  position: absolute;
+  top: 75;
+  left: 25%;
+}
+.star:nth-child(22) {
+  position: absolute;
+  top: 99;
+  left: 25%;
+}
+.star:nth-child(23) {
+  position: absolute;
+  top: 90;
+  left: 25%;
+}
+.star:nth-child(24) {
+  position: absolute;
+  top: 22;
+  left: 25%;
+}
+.star:nth-child(25) {
+  position: absolute;
+  top: 50;
+  left: 25%;
 }/*# sourceMappingURL=main.css.map */
